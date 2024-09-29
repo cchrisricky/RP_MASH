@@ -321,16 +321,16 @@ class integrator():
     
     def update_vv_mapSyz( self, map_rpmd, d_mapSy, d_mapSz, small_dt ):
 
-        #Update spin-yz by 1/4 a time-step
-        map_rpmd.mapSy += 0.25 * d_mapSy * small_dt
-        map_rpmd.mapSz += 0.25 * d_mapSz * small_dt
+        #Update spin-yz by a full time-step
+        map_rpmd.mapSy += d_mapSy * small_dt
+        map_rpmd.mapSz += d_mapSz * small_dt
 
     ###############################################################
 
     def update_vv_mapSx( self, map_rpmd, d_mapSx, d2_mapSx, small_dt):
 
         #Update spin-x by 1/2 a time-step
-        map_rpmd.mapSx += 0.5 * d_mapSx * small_dt + 1.0/8.0 * d2_mapSx * small_dt**2
+        map_rpmd.mapSx += 0.5 * d_mapSx * small_dt
 
     ###############################################################
     def updata_vv_mapS(self, map_rpmd):
